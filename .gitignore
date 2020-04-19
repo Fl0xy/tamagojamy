@@ -10,3 +10,7 @@ data_*/
 
 #dolphin
 .directory
+
+# Krita-sepcific ignores
+*.kra~
+*.png~
