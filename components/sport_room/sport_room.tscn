@@ -1,11 +1,13 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://assets/places/sport_room/springseil.png" type="Texture" id=1]
 [ext_resource path="res://components/roomBase/RoomBase.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/places/sport_room/sport_window.png" type="Texture" id=3]
 [ext_resource path="res://assets/places/sport_room/tretmuehle.png" type="Texture" id=4]
+[ext_resource path="res://components/room.gd" type="Script" id=5]
 
 [node name="sport_room" type="Node2D"]
+script = ExtResource( 5 )
 
 [node name="RoomBase" parent="." instance=ExtResource( 2 )]
 
@@ -20,3 +22,6 @@ centered = false
 [node name="tretmuehle" type="Sprite" parent="."]
 texture = ExtResource( 4 )
 centered = false
+
+[node name="pet_spos" type="Position2D" parent="."]
+position = Vector2( 8.26373, 46.3871 )

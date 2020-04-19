@@ -2,8 +2,8 @@ extends Camera2D
 
 func _ready():
 	var main = get_node("/root/Main")
-	main.connect("position_changed", self, "placeCamera")
+	main.connect("change_Camera", self, "placeCamera")
 
 func placeCamera(pos):
-	print("placing", pos)
+	print("placing Camera", pos)
 	position = pos

@@ -5,6 +5,8 @@ export(int, "YES", "NO") var Ceiling
 export(int, "YES", "NO") var Floor
 export(int, "YES", "NO") var Left
 export(int, "YES", "NO") var Right
+export(int, "HOME", "WEB", "WORK") var place
+
 
 func _ready():
 	back_visibility(Back == 0)
@@ -12,6 +14,9 @@ func _ready():
 	floor_visibility(Floor == 0)
 	left_visibility(Left == 0)
 	right_visibility(Right == 0)
+	var main = get_node("/root/Main")
+	main.addRoom(self, place)
+	
 	
 func back_visibility(value):
 	$back.visible = value

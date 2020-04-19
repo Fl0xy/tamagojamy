@@ -1,28 +1,31 @@
 extends Node
 
-enum place {HOME, WEB, WORK}
+enum PLACE {HOME, WEB, WORK}
+var rooms = {}
 
-var homePositions = [Vector2(0,0), Vector2(51,0), Vector2(102,0), Vector2(153,0), Vector2(204,0), Vector2(255,0)]
-var webPositions = [Vector2(0,51), Vector2(51,51), Vector2(102,51), Vector2(153,51)]
-var workPositions = [Vector2(0,102), Vector2(51,102), Vector2(102,102), Vector2(153,102)]
-
-var curPlace = place.HOME;
+var curPlace = PLACE.HOME;
 var curIndex = 0
 
-signal position_changed(new_pos)
-signal place_changed(new_place)
-signal homePosition_changed(new_pos)
+signal change_Camera(new_pos)
+signal change_Room(new_pos)
 
-#################### position shit ####################
-func curPosition():
-	match curPlace:
-		place.HOME:
-			return homePositions[curIndex]
-		place.WORK:
-			return workPositions[curIndex]
-		place.WEB:
-			return webPositions[curIndex]
+#################### room shit ####################
+func addRoom(room, place):
+	if !rooms.has(place):
+		rooms[place] = []
+	rooms[place].append(room)
+	rooms[place].sort_custom(self, "sort_Room")
+
+func curRoom():
+	return rooms[curPlace][curIndex]
 	
+#################### pet shit ####################
+var pet
+func setPet(_pet):
+	pet = _pet
+
+func getPet():
+	return pet
 
 #################### web shit ####################
 var webEntryPlace
@@ -30,7 +33,7 @@ var webEntryIndex
 func enterWeb():
 	webEntryIndex = curIndex;
 	webEntryPlace = curPlace;
-	curPlace = place.WEB
+	curPlace = PLACE.WEB
 	curIndex = 0
 	emitSingals()
 	
@@ -45,7 +48,7 @@ var workEntryIndex
 func enterWork():
 	workEntryPlace = curPlace
 	workEntryIndex = curIndex
-	curPlace = place.WORK
+	curPlace = PLACE.WORK
 	curIndex = 0
 	emitSingals()
 	
@@ -57,6 +60,7 @@ func exitWork():
 #################### logic shit ####################
 func _ready():
 	get_tree().get_root().set_transparent_background(true)
+	call_deferred("emitSingals")
 
 func _process(delta):
 	if Input.is_action_just_pressed("ui_right"):
@@ -76,19 +80,11 @@ func _process(delta):
 
 #################### Helper shit ####################
 func emitSingals():
-	emit_signal("place_changed", curPlace)
-	var test = curPosition()
-	emit_signal("position_changed", curPosition())
-	if curPlace == place.HOME:
-		emit_signal("homePosition_changed", curPosition())
-	
+	emit_signal("change_Camera", curRoom().global_position)
+	emit_signal("change_Room", curRoom())
 
 func curPlaceMax():
-	match curPlace:
-		place.HOME:
-			return homePositions.size()-1
-		place.WEB:
-			return webPositions.size()-1
-		place.WORK:
-			return workPositions.size()-1
+	return rooms[curPlace].size()-1
 		
+static func sort_Room(a, b):
+	return a.position.x < b.position.x
