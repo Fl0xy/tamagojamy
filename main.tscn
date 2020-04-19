@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://game.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/device/btnL.png" type="Texture" id=2]
@@ -15,6 +15,7 @@
 [ext_resource path="res://assets/device/btnCloseP.png" type="Texture" id=13]
 [ext_resource path="res://assets/device/btnUpP.png" type="Texture" id=14]
 [ext_resource path="res://assets/device/btnDownP.png" type="Texture" id=15]
+[ext_resource path="res://components/btn/btnClose.gd" type="Script" id=16]
 
 [node name="Node2D" type="Node2D"]
 
@@ -44,6 +45,18 @@ position = Vector2( -96, -150 )
 texture = ExtResource( 5 )
 centered = false
 
+[node name="btnClose" type="TextureButton" parent="."]
+margin_left = 116.0
+margin_top = -102.0
+margin_right = 125.0
+margin_bottom = -92.0
+texture_normal = ExtResource( 12 )
+texture_pressed = ExtResource( 13 )
+script = ExtResource( 16 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="btnRight" parent="." instance=ExtResource( 3 )]
 margin_left = 107.0
 margin_top = 19.0
@@ -62,46 +75,30 @@ texture_normal = ExtResource( 2 )
 texture_pressed = ExtResource( 7 )
 InputEventCode = "ui_left"
 
-[node name="btnClose" type="TextureButton" parent="."]
-margin_left = 116.0
-margin_top = -102.0
-margin_right = 125.0
-margin_bottom = -92.0
-texture_normal = ExtResource( 12 )
-texture_pressed = ExtResource( 13 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="btnSpace" type="TextureButton" parent="."]
+[node name="btnSpace" parent="." instance=ExtResource( 3 )]
 margin_left = 34.0
 margin_top = 125.0
 margin_right = 68.0
 margin_bottom = 137.0
 texture_normal = ExtResource( 10 )
 texture_pressed = ExtResource( 11 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+InputEventCode = "ui_accept"
 
-[node name="btnDown" type="TextureButton" parent="."]
-margin_left = -7.0
-margin_top = 116.0
-margin_right = 12.0
-margin_bottom = 133.0
-texture_normal = ExtResource( 8 )
-texture_pressed = ExtResource( 15 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="btnUp" type="TextureButton" parent="."]
+[node name="btnUp" parent="." instance=ExtResource( 3 )]
 margin_left = 90.0
 margin_top = 116.0
 margin_right = 109.0
 margin_bottom = 133.0
 texture_normal = ExtResource( 9 )
 texture_pressed = ExtResource( 14 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+InputEventCode = "ui_up"
+
+[node name="btnDown" parent="." instance=ExtResource( 3 )]
+margin_left = -7.0
+margin_top = 118.0
+margin_right = 12.0
+margin_bottom = 135.0
+texture_normal = ExtResource( 8 )
+texture_pressed = ExtResource( 15 )
+InputEventCode = "ui_down"
+[connection signal="pressed" from="btnClose" to="btnClose" method="_on_btnClose_pressed"]

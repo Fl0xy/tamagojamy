@@ -22,3 +22,7 @@ func toggle_btn(action, state):
 	ev.pressed = state
 	Input.parse_input_event(ev)
 	toggle = state;
+
+
+func _on_btnSpace_pressed():
+	pass # Replace with function body.
