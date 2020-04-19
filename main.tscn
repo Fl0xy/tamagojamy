@@ -82,7 +82,7 @@ margin_right = 68.0
 margin_bottom = 137.0
 texture_normal = ExtResource( 10 )
 texture_pressed = ExtResource( 11 )
-InputEventCode = "ui_accept"
+InputEventCode = "ui_space"
 
 [node name="btnUp" parent="." instance=ExtResource( 3 )]
 margin_left = 90.0

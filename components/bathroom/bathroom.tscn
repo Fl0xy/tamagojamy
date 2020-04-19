@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://assets/places/bathroom/bathtub.png" type="Texture" id=1]
 [ext_resource path="res://assets/places/bathroom/bath_window.png" type="Texture" id=2]
 [ext_resource path="res://components/roomBase/RoomBase.tscn" type="PackedScene" id=3]
 [ext_resource path="res://components/room.gd" type="Script" id=4]
+[ext_resource path="res://components/minigame/minigame.tscn" type="PackedScene" id=5]
+[ext_resource path="res://components/arrow_down/arrow_down.tscn" type="PackedScene" id=6]
 
 [node name="bathroom" type="Node2D"]
 script = ExtResource( 4 )
@@ -20,3 +22,9 @@ centered = false
 
 [node name="pet_spos" type="Position2D" parent="."]
 position = Vector2( 19.7439, 46.8468 )
+
+[node name="a0" parent="." instance=ExtResource( 6 )]
+position = Vector2( 21, 8 )
+key = "clean"
+
+[node name="minigame" parent="." instance=ExtResource( 5 )]

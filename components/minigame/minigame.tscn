@@ -1,0 +1,60 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://assets/minigame/minigame_bar.png" type="Texture" id=1]
+[ext_resource path="res://assets/minigame/minigame_arrow.png" type="Texture" id=2]
+[ext_resource path="res://assets/minigame/minigame_target.png" type="Texture" id=3]
+[ext_resource path="res://assets/minigame/minigame_arrow_bg.png" type="Texture" id=4]
+[ext_resource path="res://assets/minigame/minigame_puls2.png" type="Texture" id=5]
+[ext_resource path="res://assets/minigame/minigame_puls1.png" type="Texture" id=6]
+[ext_resource path="res://components/minigame/minigame.gd" type="Script" id=7]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 6 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "default",
+"speed": 3.0
+} ]
+
+[node name="minigame" type="Node2D"]
+position = Vector2( 1, 0 )
+script = ExtResource( 7 )
+
+[node name="bg" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+centered = false
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="target" type="Sprite" parent="."]
+position = Vector2( 21, 10 )
+texture = ExtResource( 3 )
+centered = false
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="arrowbg" type="Sprite" parent="."]
+texture = ExtResource( 4 )
+centered = false
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( -0.0537338, 0 )
+frames = SubResource( 1 )
+playing = true
+centered = false
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="arrow" type="Sprite" parent="."]
+position = Vector2( 8, 14 )
+texture = ExtResource( 2 )
+centered = false
+__meta__ = {
+"_edit_lock_": true
+}

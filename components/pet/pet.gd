@@ -8,7 +8,6 @@ var moving = false;
 func _ready():	
 	var main = get_node("/root/Main")
 	main.setPet(self)
-	main.connect("position_changed", self, "move_to_room")
 
 func move_to_pos(pos):
 	target_x = pos.x
