@@ -28,3 +28,4 @@ position = Vector2( 21, 8 )
 key = "clean"
 
 [node name="minigame" parent="." instance=ExtResource( 5 )]
+visible = false

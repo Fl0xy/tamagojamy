@@ -28,6 +28,7 @@ func _process(delta):
 	
 	if Input.is_action_just_pressed("ui_space") && (state == STATES.RUNNIG_LEFT || state == STATES.RUNNIG_RIGHT):
 		state = STATES.FINISHED
+		timer = finished_timer
 		if arrow.position.x >= target.position.x && arrow.position.x < (target.position.x + 7):
 			emit_signal("game_finished", true)
 		else:
