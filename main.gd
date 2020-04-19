@@ -2,7 +2,7 @@ extends Node
 
 enum place {HOME, WEB, WORK}
 
-var homePositions = [Vector2(0,0), Vector2(51,0), Vector2(102,0), Vector2(153,0)]
+var homePositions = [Vector2(0,0), Vector2(51,0), Vector2(102,0), Vector2(153,0), Vector2(204,0), Vector2(255,0)]
 var webPositions = [Vector2(0,51), Vector2(51,51), Vector2(102,51), Vector2(153,51)]
 var workPositions = [Vector2(0,102), Vector2(51,102), Vector2(102,102), Vector2(153,102)]
 

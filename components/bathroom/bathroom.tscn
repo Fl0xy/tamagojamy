@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://assets/places/bathroom/bathtub.png" type="Texture" id=1]
+[ext_resource path="res://assets/places/bathroom/bath_window.png" type="Texture" id=2]
+[ext_resource path="res://components/roomBase/RoomBase.tscn" type="PackedScene" id=3]
+[ext_resource path="res://components/bathroom/bathroom.gd" type="Script" id=4]
+
+[node name="bathroom" type="Node2D"]
+script = ExtResource( 4 )
+
+[node name="RoomBase" parent="." instance=ExtResource( 3 )]
+
+[node name="bathtub" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+centered = false
+
+[node name="bath_window" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+centered = false

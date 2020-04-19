@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/places/web_shop/monitor.png" type="Texture" id=1]
+[ext_resource path="res://assets/places/web_shop/toiletpaper_button.png" type="Texture" id=2]
+[ext_resource path="res://assets/places/web_shop/background.png" type="Texture" id=3]
+
+[node name="web_shop" type="Node2D"]
+
+[node name="background" type="Sprite" parent="."]
+texture = ExtResource( 3 )
+centered = false
+
+[node name="monitor" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+centered = false
+
+[node name="toiletpaper_button" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+centered = false

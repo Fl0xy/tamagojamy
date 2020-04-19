@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://assets/places/kitchen/abzugshaube.png" type="Texture" id=1]
+[ext_resource path="res://assets/places/kitchen/cooking_utensils.png" type="Texture" id=2]
+[ext_resource path="res://assets/places/kitchen/cooking_station.png" type="Texture" id=3]
+[ext_resource path="res://components/roomBase/RoomBase.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/places/kitchen/fridge.png" type="Texture" id=5]
+
+[node name="kitchen" type="Node2D"]
+
+[node name="RoomBase" parent="." instance=ExtResource( 4 )]
+
+[node name="abzugshaube" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+centered = false
+
+[node name="cooking_station" type="Sprite" parent="."]
+texture = ExtResource( 3 )
+centered = false
+
+[node name="cooking_utensils" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+centered = false
+
+[node name="fridge" type="Sprite" parent="."]
+texture = ExtResource( 5 )
+centered = false

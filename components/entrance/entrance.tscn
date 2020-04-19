@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/places/entrance/door.png" type="Texture" id=1]
+[ext_resource path="res://components/roomBase/RoomBase.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/places/entrance/hat_rack.png" type="Texture" id=3]
+
+[node name="entrance" type="Node2D"]
+
+[node name="RoomBase" parent="." instance=ExtResource( 2 )]
+Left = 1
+Right = 1
+
+[node name="door" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+centered = false
+
+[node name="hat_rack" type="Sprite" parent="."]
+texture = ExtResource( 3 )
+centered = false
