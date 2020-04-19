@@ -55,6 +55,9 @@ func exitWork():
 	emitSingals()
 
 #################### logic shit ####################
+func _ready():
+	get_tree().get_root().set_transparent_background(true)
+
 func _process(delta):
 	if Input.is_action_just_pressed("ui_right"):
 		if curIndex < curPlaceMax():
