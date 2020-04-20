@@ -1,14 +1,18 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://components/roomBase/RoomBase.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/places/schlafzimmer/schrank.png" type="Texture" id=2]
 [ext_resource path="res://assets/places/schlafzimmer/lamp.png" type="Texture" id=3]
 [ext_resource path="res://assets/places/schlafzimmer/bed.png" type="Texture" id=4]
 [ext_resource path="res://components/arrow_down/arrow_down.tscn" type="PackedScene" id=5]
+[ext_resource path="res://components/minigame/minigame.tscn" type="PackedScene" id=6]
+[ext_resource path="res://components/room.gd" type="Script" id=7]
 
 [node name="bedroom" type="Node2D"]
+script = ExtResource( 7 )
 
 [node name="RoomBase" parent="." instance=ExtResource( 1 )]
+Left = 0
 
 [node name="bed" type="Sprite" parent="."]
 texture = ExtResource( 4 )
@@ -31,8 +35,14 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="a1" parent="." instance=ExtResource( 5 )]
-position = Vector2( 12, 25 )
-
 [node name="pet_spos" type="Position2D" parent="."]
 position = Vector2( 33, 46 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="a0" parent="." instance=ExtResource( 5 )]
+position = Vector2( 12, 25 )
+
+[node name="minigame" parent="." instance=ExtResource( 6 )]
+visible = false

@@ -54,12 +54,9 @@ func find_action_arrows():
 		if has_node("a" + String(i)):
 			action_arrows[i] = get_node("a" + String(i))
 			action_arrows[i].visible = false
-			action_arrows[i].connect("arrow_pressed", self, "action_arrow_pressed")
 		else:
 			break
 	
-func action_arrow_pressed(key):
-	pass
 
 ################ logic shit ##############
 func _process(delta):
