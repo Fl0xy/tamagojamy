@@ -1,8 +1,8 @@
 extends Node2D
 
 enum AGE {EGG, CHILD, ADULT}
-export var EGG_DURATION = 10
-export var CHILD_DURATION = 10
+export var EGG_DURATION = 30
+export var CHILD_DURATION = 180
 export var ADULT_DURATION = -INF
 
 var age = AGE.EGG setget set_age
@@ -35,6 +35,7 @@ func age(delta):
 				self.age = AGE.ADULT
 			AGE.EGG:
 				self.age = AGE.CHILD
+		$Audio/Age.play()
 
 var alive = true
 var health = 100 setget set_health
@@ -44,13 +45,14 @@ func die():
 	alive = false
 	hide_all_emotions()
 	show_dead_graphics()
+	$Audio/Death.play()
 
 ##### needs #####
-var fullness = 100 setget set_fullness
-var energy = 100 setget set_energy
-var cleanliness = 100 setget set_cleanliness
-var guts = 0 setget set_guts
-var fun = 100 setget set_fun
+export var fullness = 80 setget set_fullness
+export var energy = 100 setget set_energy
+export var cleanliness = 0 setget set_cleanliness
+export var guts = 50 setget set_guts
+export var fun = 100 setget set_fun
 
 func set_fullness(v): fullness = clamp(v, 0, 100)
 func set_energy(v): energy = clamp(v, 0, 100)
@@ -58,11 +60,11 @@ func set_cleanliness(v): cleanliness = clamp(v, 0, 100)
 func set_guts(v): guts = clamp(v, 0, 100)
 func set_fun(v): fun = clamp(v, 0, 100)
 
-export var hunger_rate = 10
-export var energy_burn_rate = 10
-export var dirty_rate = 10
-export var food_conversion_rate = 10
-export var fun_rate = 10
+export var hunger_rate = 2
+export var energy_burn_rate = 2
+export var dirty_rate = 2
+export var food_conversion_rate = 2
+export var fun_rate = 2
 
 export var fullness_limit = 30
 export var energy_limit = 30
@@ -165,6 +167,7 @@ func can_do(key):
 			return is_dirty() and not is_bored() and not is_sleepy() and not is_hungry() and not is_toiletty()
 
 func action(key, state):
+	self.energy -= 5 #action cost
 	if not state: return
 	match key:
 		"shit":
@@ -218,4 +221,4 @@ func _physics_process(delta):
 	##### aging ####
 	age(delta)
 	#print(time_until_aging, " ", age)
-	print(health)
+	print("hp: ", int(health), " full: ", int(fullness), " ener: ", int(energy), " clean: ", int(cleanliness), " guts: ", int(guts), " fun: ", int(fun))

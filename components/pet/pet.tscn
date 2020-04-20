@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=2]
+[gd_scene load_steps=41 format=2]
 
 [ext_resource path="res://assets/pet/pet1.png" type="Texture" id=1]
 [ext_resource path="res://assets/pet/pet2.png" type="Texture" id=2]
@@ -27,8 +27,10 @@
 [ext_resource path="res://assets/pet/pet_emotions/sport_frame_0.png" type="Texture" id=25]
 [ext_resource path="res://assets/pet/pet_emotions/sport_frame_1.png" type="Texture" id=26]
 [ext_resource path="res://assets/pet/pet_emotions/sleepy_frame_1.png" type="Texture" id=27]
+[ext_resource path="res://sound/win.wav" type="AudioStream" id=28]
+[ext_resource path="res://sound/lose.wav" type="AudioStream" id=29]
 
-[sub_resource type="SpriteFrames" id=12]
+[sub_resource type="SpriteFrames" id=1]
 animations = [ {
 "frames": [ ExtResource( 6 ), ExtResource( 8 ), ExtResource( 7 ), ExtResource( 8 ) ],
 "loop": true,
@@ -36,7 +38,7 @@ animations = [ {
 "speed": 3.0
 } ]
 
-[sub_resource type="SpriteFrames" id=13]
+[sub_resource type="SpriteFrames" id=2]
 animations = [ {
 "frames": [ ExtResource( 1 ), ExtResource( 2 ) ],
 "loop": true,
@@ -54,10 +56,10 @@ animations = [ {
 
 [sub_resource type="SpriteFrames" id=4]
 animations = [ {
-"frames": [ ExtResource( 10 ) ],
+"frames": [ ExtResource( 10 ), ExtResource( 10 ), ExtResource( 10 ), ExtResource( 10 ), null, null ],
 "loop": true,
 "name": "default",
-"speed": 5.0
+"speed": 3.0
 } ]
 
 [sub_resource type="Animation" id=5]
@@ -75,7 +77,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.3, 0.6 )
 }
 
-[sub_resource type="SpriteFrames" id=14]
+[sub_resource type="SpriteFrames" id=6]
 animations = [ {
 "frames": [ ExtResource( 20 ), ExtResource( 15 ) ],
 "loop": true,
@@ -91,7 +93,7 @@ animations = [ {
 "speed": 0.5
 } ]
 
-[sub_resource type="SpriteFrames" id=15]
+[sub_resource type="SpriteFrames" id=8]
 animations = [ {
 "frames": [ ExtResource( 22 ), ExtResource( 27 ) ],
 "loop": true,
@@ -129,15 +131,14 @@ script = ExtResource( 3 )
 [node name="Graphics" type="Node2D" parent="."]
 
 [node name="Egg" type="AnimatedSprite" parent="Graphics"]
-frames = SubResource( 12 )
-frame = 2
+frames = SubResource( 1 )
 playing = true
 centered = false
 offset = Vector2( -5, -6 )
 
 [node name="Child" type="AnimatedSprite" parent="Graphics"]
 visible = false
-frames = SubResource( 13 )
+frames = SubResource( 2 )
 playing = true
 centered = false
 
@@ -153,14 +154,12 @@ offset = Vector2( -5, -5 )
 visible = false
 
 [node name="Ghost" type="AnimatedSprite" parent="Graphics/Dead"]
-modulate = Color( 1, 1, 1, 0.955561 )
 position = Vector2( -3, -24 )
 frames = SubResource( 4 )
 playing = true
 centered = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Graphics/Dead/Ghost"]
-autoplay = "New Anim"
 "anims/New Anim" = SubResource( 5 )
 
 [node name="Tombstone2" type="Sprite" parent="Graphics/Dead"]
@@ -173,22 +172,24 @@ position = Vector2( 4, -14 )
 
 [node name="Dirty" type="AnimatedSprite" parent="Emotions"]
 visible = false
-frames = SubResource( 14 )
+frames = SubResource( 6 )
 playing = true
 
 [node name="BoredSporty" type="AnimatedSprite" parent="Emotions"]
 visible = false
 frames = SubResource( 7 )
+frame = 1
 playing = true
 
 [node name="Sleepy" type="AnimatedSprite" parent="Emotions"]
 visible = false
-frames = SubResource( 15 )
+frames = SubResource( 8 )
 playing = true
 
 [node name="Hunger" type="AnimatedSprite" parent="Emotions"]
 visible = false
 frames = SubResource( 9 )
+frame = 1
 playing = true
 
 [node name="Toilett" type="AnimatedSprite" parent="Emotions"]
@@ -209,3 +210,11 @@ visible = false
 frames = SubResource( 11 )
 frame = 2
 playing = true
+
+[node name="Audio" type="Node" parent="."]
+
+[node name="Age" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource( 28 )
+
+[node name="Death" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource( 29 )
