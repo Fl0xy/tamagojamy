@@ -49,6 +49,7 @@ func deactivate():
 	#### hacki teleporting ####
 	if pet != null && pet_old_position != null:
 		pet.position = pet_old_position
+		pet = null
 
 
 func _on_Timer_timeout():

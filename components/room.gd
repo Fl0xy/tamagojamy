@@ -89,3 +89,6 @@ func minigame_finshed(state):
 		print("minigame gewonnen: ", minigame.key)
 	else:
 		print("minigame verloren")
+
+
+############### helper shit ###############
