@@ -90,3 +90,6 @@ func curPlaceMax():
 		
 static func sort_Room(a, b):
 	return a.position.x < b.position.x
+
+################### money shit ######################
+var moneyobj

@@ -57,3 +57,5 @@ volume_db = -16.138
 [node name="key2" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 7 )
 volume_db = -22.414
+
+[node name="Timer" type="Timer" parent="."]
