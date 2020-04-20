@@ -17,7 +17,8 @@ func _input(event):
 	if (active
 	and event.is_action_pressed("ui_space")
 	and is_pet_on_screen()
-	and main.pet.age == main.pet.AGE.ADULT):
+	and (main.pet.age == main.pet.AGE.CHILD
+		or main.pet.age == main.pet.AGE.ADULT)):
 		play_sound()
 	
 func play_sound():
@@ -39,7 +40,7 @@ func sw_action_button_visibility(age):
 	match age:
 		AGE.EGG:
 			cr.get_node("arrow_down").visible = false
-		AGE.ADULT:
-			continue
 		AGE.CHILD:
+			cr.get_node("arrow_down").visible = true
+		AGE.ADULT:
 			cr.get_node("arrow_down").visible = true

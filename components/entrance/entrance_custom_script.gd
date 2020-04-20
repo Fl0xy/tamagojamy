@@ -40,7 +40,7 @@ func sw_action_button_visibility(age):
 	match age:
 		AGE.EGG:
 			e.get_node("arrow_down").visible = false
-		AGE.ADULT:
-			continue
 		AGE.CHILD:
+			e.get_node("arrow_down").visible = false
+		AGE.ADULT:
 			e.get_node("arrow_down").visible = true
