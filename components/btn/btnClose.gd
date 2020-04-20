@@ -1,7 +1,10 @@
 extends TextureButton
 
 func _ready():
-	pass
+	if OS.get_name() == "HTML5":
+		visible = false
+	else:
+		connect("pressed", self, "_on_btnClose_pressed")
 
 
 func _on_btnClose_pressed():

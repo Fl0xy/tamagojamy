@@ -17,7 +17,8 @@ func _input(event):
 	if (active
 	and event.is_action_pressed("ui_space")
 	and is_pet_on_screen()
-	and main.pet.age == main.pet.AGE.ADULT):
+	and main.pet.age == main.pet.AGE.ADULT
+	and main.pet.alive):
 		play_sound()
 	
 func play_sound():

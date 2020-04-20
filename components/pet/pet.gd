@@ -230,4 +230,4 @@ func _physics_process(delta):
 	##### aging ####
 	age(delta)
 	#print(time_until_aging, " ", age)
-	print("hp: ", int(health), " full: ", int(fullness), " ener: ", int(energy), " clean: ", int(cleanliness), " guts: ", int(guts), " fun: ", int(fun))
+	#print("hp: ", int(health), " full: ", int(fullness), " ener: ", int(energy), " clean: ", int(cleanliness), " guts: ", int(guts), " fun: ", int(fun))

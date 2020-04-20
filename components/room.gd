@@ -64,6 +64,6 @@ func sw_action_button_visibility(age):
 		AGE.EGG:
 			action_arrow.visible = false
 		AGE.CHILD:
-			continue
+			action_arrow.visible = true
 		AGE.ADULT:
 			action_arrow.visible = true
