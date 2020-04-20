@@ -25,8 +25,7 @@ Main="*res://main.gd"
 
 [display]
 
-window/size/width=600
-window/size/height=800
+window/size/width=400
 window/per_pixel_transparency/allowed=true
 window/per_pixel_transparency/enabled=true
 window/handheld/orientation="portrait"

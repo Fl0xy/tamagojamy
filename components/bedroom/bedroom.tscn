@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://components/roomBase/RoomBase.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/places/schlafzimmer/schrank.png" type="Texture" id=2]
+[ext_resource path="res://assets/places/schlafzimmer/lamp.png" type="Texture" id=3]
+[ext_resource path="res://assets/places/schlafzimmer/bed.png" type="Texture" id=4]
+[ext_resource path="res://components/arrow_down/arrow_down.tscn" type="PackedScene" id=5]
+
+[node name="bedroom" type="Node2D"]
+
+[node name="RoomBase" parent="." instance=ExtResource( 1 )]
+
+[node name="bed" type="Sprite" parent="."]
+texture = ExtResource( 4 )
+centered = false
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="lamp" type="Sprite" parent="."]
+texture = ExtResource( 3 )
+centered = false
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="schrank" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+centered = false
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="a1" parent="." instance=ExtResource( 5 )]
+position = Vector2( 12, 25 )
+
+[node name="pet_spos" type="Position2D" parent="."]
+position = Vector2( 33, 46 )
