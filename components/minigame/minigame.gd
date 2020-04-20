@@ -14,12 +14,14 @@ var curPos
 
 onready var arrow = $arrow
 onready var target = $target
+onready var main = get_node("/root/Main")
 
 signal game_finished(state)
 signal game_show()
 
 export(bool) var playWin = true
 export(bool) var playLose = true
+export(String) var key = ""
 
 func _ready():
 	visible = false
@@ -35,6 +37,7 @@ func _process(delta):
 		if arrow.position.x >= target.position.x && arrow.position.x < (target.position.x + 7):
 			if (playWin):
 				$win.play()
+			main.getPet.up_needs(key)
 			emit_signal("game_finished", true)
 		else:
 			if (playLose):
@@ -73,9 +76,12 @@ func deactivate():
 	
 
 func activate():
+	# main.getPet.can_do(key):
 	timer = start_timer
 	curPos = arrow.position.x
 	visible = true
 	speed = randf()
 	state = STATES.START
 	emit_signal("game_show")
+	#else:
+	#	$lose.play()

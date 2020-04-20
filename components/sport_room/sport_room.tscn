@@ -42,7 +42,7 @@ __meta__ = {
 
 [node name="a0" parent="." instance=ExtResource( 7 )]
 position = Vector2( 29, 23 )
-key = "sport"
 
 [node name="minigame" parent="." instance=ExtResource( 6 )]
 visible = false
+key = "train"

@@ -38,11 +38,11 @@ __meta__ = {
 
 [node name="a0" parent="." instance=ExtResource( 6 )]
 position = Vector2( 21, 18 )
-key = "clean"
 
 [node name="minigame" parent="." instance=ExtResource( 5 )]
 visible = false
 playWin = false
+key = "clean"
 
 [node name="audiohorst" parent="." instance=ExtResource( 7 )]
 
