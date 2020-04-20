@@ -14,8 +14,6 @@ func _ready():
 	floor_visibility(Floor == 0)
 	left_visibility(Left == 0)
 	right_visibility(Right == 0)
-	var main = get_node("/root/Main")
-	main.addRoom(self, place)
 	
 	
 func back_visibility(value):

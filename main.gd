@@ -4,7 +4,7 @@ enum PLACE {HOME, WEB, WORK}
 var rooms = {}
 
 var curPlace = PLACE.HOME;
-var curIndex = 0
+var curIndex = 1
 
 signal change_Camera(new_pos)
 signal change_Room(new_pos)
@@ -35,12 +35,12 @@ func enterWeb():
 	webEntryPlace = curPlace;
 	curPlace = PLACE.WEB
 	curIndex = 0
-	emitSingals()
+	emitSignals()
 	
 func exitWeb():
 	curPlace = webEntryPlace
 	curIndex = webEntryIndex
-	emitSingals()
+	emitSignals()
 
 #################### work shit ####################
 var workEntryPlace
@@ -50,17 +50,17 @@ func enterWork():
 	workEntryIndex = curIndex
 	curPlace = PLACE.WORK
 	curIndex = 0
-	emitSingals()
+	emitSignals()
 	
 func exitWork():
 	curPlace = workEntryPlace
 	curIndex = workEntryIndex
-	emitSingals()
+	emitSignals()
 
 #################### logic shit ####################
 func _ready():
 	get_tree().get_root().set_transparent_background(true)
-	call_deferred("emitSingals")
+	call_deferred("emitSignals")
 
 func _process(delta):
 	if Input.is_action_just_pressed("ui_right"):
@@ -68,7 +68,7 @@ func _process(delta):
 			curIndex = curIndex+1
 		else:
 			curIndex = 0
-		emitSingals()
+		emitSignals()
 		return
 		
 	if Input.is_action_just_pressed("ui_left"):
@@ -76,10 +76,12 @@ func _process(delta):
 			curIndex = curIndex-1
 		else:
 			curIndex = curPlaceMax()
-		emitSingals()
+		emitSignals()
 
 #################### Helper shit ####################
-func emitSingals():
+func emitSignals():
+	call_deferred("emitSignalsHelper")
+func emitSignalsHelper():
 	emit_signal("change_Camera", curRoom().global_position)
 	emit_signal("change_Room", curRoom())
 

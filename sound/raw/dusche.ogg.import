@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/dusche.ogg-af046e1e6fbf4d2bd4f36ca3ff26a659.oggstr"
+
+[deps]
+
+source_file="res://sound/raw/dusche.ogg"
+dest_files=[ "res://.import/dusche.ogg-af046e1e6fbf4d2bd4f36ca3ff26a659.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -5,11 +5,12 @@ onready var main = get_node("/root/Main")
 
 func _ready():
 	main.connect("change_Room", self, "change_Room")
+	main.addRoom(self, main.PLACE.HOME)
 	init_action_arrows()
 	init_minigame()
 
-func change_Room(roombase):
-	if $RoomBase == roombase:
+func change_Room(room):
+	if self == room:
 		activate()
 	else:
 		deactivate()
@@ -58,19 +59,19 @@ func find_action_arrows():
 			break
 	
 
-################ logic shit ##############
-func _process(delta):
+################ input shit ##############
+func _input(event):
 	if !active || action_arrows.size() == 0:
 		return
 	if minigame.visible:
 		return ### deactivate controls if minigame is active
-	if Input.is_action_just_pressed("ui_space"):
+	if event.is_action_pressed("ui_space"):
 		minigame.activate()
 		return
-	if Input.is_action_just_pressed("ui_up"):
+	if event.is_action_pressed("ui_up"):
 		change_arrow_p()
 		return
-	if Input.is_action_just_pressed("ui_down"):
+	if event.is_action_pressed("ui_down"):
 		change_arrow_m()
 		return
 

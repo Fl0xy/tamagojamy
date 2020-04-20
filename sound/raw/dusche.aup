@@ -1,0 +1,73 @@
+<?xml version="1.0" standalone="no" ?>
+<!DOCTYPE project PUBLIC "-//audacityproject-1.3.0//DTD//EN" "http://audacity.sourceforge.net/xml/audacityproject-1.3.0.dtd" >
+<project xmlns="http://audacity.sourceforge.net/xml/" projname="dusche_data" version="1.3.0" audacityversion="2.3.3" sel0="5.5753541667" sel1="7.0688125000" vpos="0" h="0.0000000000" zoom="200.8738331650" rate="48000.0" snapto="off" selectionformat="hh:mm:ss + milliseconds" frequencyformat="Hz" bandwidthformat="octaves">
+	<tags>
+		<tag name="ENCODER" value="android-audio-recorder"/>
+	</tags>
+	<wavetrack name="dusche" isSelected="0" height="150" minimized="0" channel="2" linked="0" mute="1" solo="0" rate="48000" gain="1.0" pan="0.0" colorindex="0">
+		<waveclip offset="0.00000000" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="575167">
+				<waveblock start="0">
+					<simpleblockfile filename="eff1f777.au" len="192191" min="-0.736786" max="0.779053" rms="0.053055"/>
+				</waveblock>
+				<waveblock start="192191">
+					<simpleblockfile filename="eff1f06c.au" len="262144" min="-0.885254" max="0.859436" rms="0.039899"/>
+				</waveblock>
+				<waveblock start="454335">
+					<simpleblockfile filename="eff1f280.au" len="120832" min="-0.042145" max="0.045563" rms="0.001335"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="dusche" isSelected="0" height="150" minimized="0" channel="2" linked="0" mute="0" solo="0" rate="48000" gain="1.0" pan="0.0" colorindex="0">
+		<waveclip offset="0.00000000" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="89653">
+				<waveblock start="0">
+					<simpleblockfile filename="eff1f2f1.au" len="89653" min="-0.496918" max="0.597198" rms="0.046445"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="dusche_noise" isSelected="0" height="150" minimized="0" channel="2" linked="0" mute="0" solo="0" rate="48000" gain="1.0" pan="0.0" colorindex="0">
+		<waveclip offset="1.86777083" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="177964">
+				<waveblock start="0">
+					<simpleblockfile filename="eff1f67c.au" len="177964" min="-0.885315" max="0.859436" rms="0.046923"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="dusche_noise" isSelected="1" height="150" minimized="0" channel="2" linked="0" mute="0" solo="0" rate="48000" gain="1.0" pan="0.0" colorindex="0">
+		<waveclip offset="1.23958333" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="60934">
+				<waveblock start="0">
+					<simpleblockfile filename="eff1f90d.au" len="60934" min="-0.653522" max="0.744968" rms="0.038132"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="dusche_noise" isSelected="1" height="149" minimized="0" channel="2" linked="0" mute="0" solo="0" rate="48000" gain="1.0" pan="0.0" colorindex="0">
+		<waveclip offset="4.74427083" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="58305">
+				<waveblock start="0">
+					<simpleblockfile filename="eff1f801.au" len="58305" min="-0.665139" max="0.75822" rms="0.039371"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="dusche" isSelected="1" height="150" minimized="0" channel="2" linked="0" mute="0" solo="0" rate="48000" gain="1.0" pan="0.0" colorindex="0">
+		<waveclip offset="5.57535417" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="71686">
+				<waveblock start="0">
+					<simpleblockfile filename="eff1fb04.au" len="71686" min="-0.493885" max="0.526276" rms="0.024675"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+</project>

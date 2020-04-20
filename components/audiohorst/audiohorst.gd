@@ -22,10 +22,11 @@ func init_sounds():
 
 ############### play shit #####################
 func playsound_start():
-	audio_index = randi()%(sounds_end.size())
-	if !sounds_start[audio_index].is_connected("finished", self, "playsound_start_noise"):
-		sounds_start[audio_index].connect("finished", self, "playsound_noise_start")
-	sounds_start[audio_index].play()
+	if sounds_start.size() > 0:
+		audio_index = randi()%(sounds_start.size())
+		if !sounds_start[audio_index].is_connected("finished", self, "playsound_start_noise"):
+			sounds_start[audio_index].connect("finished", self, "playsound_noise_start")
+		sounds_start[audio_index].play()
 
 func playsound_noise_start():
 	sounds_noise[audio_index].play()

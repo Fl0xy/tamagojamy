@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/people-in-lounge.ogg-a3d61e5f813732da281d36b759c167ca.oggstr"
+
+[deps]
+
+source_file="res://sound/people-in-lounge.ogg"
+dest_files=[ "res://.import/people-in-lounge.ogg-a3d61e5f813732da281d36b759c167ca.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
