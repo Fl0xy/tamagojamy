@@ -8,16 +8,17 @@ var active = false
 func _ready():
 	main.connect("change_Room", self, "change_Room")
 	$goto_work.connect("finished", self, "enter_web")
-	call_deferred("arrow_down_hack")
+	main.connect("pet_added", self, "sw_action_button_visibility_init")
 
 func change_Room(room):
 	active = e == room
 
 func _input(event):
-	if active:
-		if event.is_action_pressed("ui_space"):
-			if is_pet_on_screen() && main.pet.age == main.pet.AGE.ADULT:
-				play_sound()
+	if (active
+	and event.is_action_pressed("ui_space")
+	and is_pet_on_screen()
+	and main.pet.age == main.pet.AGE.ADULT):
+		play_sound()
 	
 func play_sound():
 	$goto_work.play()
@@ -30,5 +31,16 @@ func enter_web():
 func is_pet_on_screen():
 	return floor(main.pet.position.x/51) == floor(e.position.x/51)
 
-func arrow_down_hack():
-	e.get_node("arrow_down").visible = false
+func sw_action_button_visibility_init(pet):
+	pet.connect("age_changed", self, "sw_action_button_visibility")
+	sw_action_button_visibility(pet.age)
+	
+func sw_action_button_visibility(age):
+	var AGE = main.getPet().AGE
+	match age:
+		AGE.EGG:
+			e.get_node("arrow_down").visible = false
+		AGE.ADULT:
+			continue
+		AGE.CHILD:
+			e.get_node("arrow_down").visible = true

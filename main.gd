@@ -8,6 +8,7 @@ var curIndex = 1
 
 signal change_Camera(new_pos)
 signal change_Room(new_pos)
+signal pet_added(pet)
 
 #################### room shit ####################
 func addRoom(room, place):
@@ -23,6 +24,7 @@ func curRoom():
 var pet
 func setPet(_pet):
 	pet = _pet
+	emit_signal("pet_added", pet)
 
 func getPet():
 	return pet

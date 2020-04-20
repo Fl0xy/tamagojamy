@@ -1,13 +1,16 @@
 extends Node2D
 
 var active = false
+var action_arrow
 onready var main = get_node("/root/Main")
 
 func _ready():
 	main.connect("change_Room", self, "change_Room")
 	main.addRoom(self, main.PLACE.HOME)
-	init_action_arrows()
 	init_minigame()
+	if has_node("a0"): 
+		action_arrow = $a0
+		main.connect("pet_added", self, "sw_action_button_visibility_init")
 
 func change_Room(room):
 	if self == room:
@@ -22,58 +25,13 @@ func activate():
 func deactivate():
 	active = false
 
-############### action arrow shit ###############
-var action_arrows = {}
-var action_arrow_index = 0
-func init_action_arrows():
-	find_action_arrows()
-	if action_arrows.size() > 0:
-		action_arrows[action_arrow_index].visible = true
-
-func change_arrow_p():
-	if action_arrows.size() == 1:
-		return
-	action_arrows[action_arrow_index].visible = false
-	if action_arrow_index + 1 < action_arrows.size():
-		action_arrow_index += 1
-	else:
-		action_arrow_index = 0
-	action_arrows[action_arrow_index].visible = true
-	
-func change_arrow_m():
-	if action_arrows.size() == 1:
-		return
-	action_arrows[action_arrow_index].visible = false
-	if action_arrow_index - 1 >= 0:
-		action_arrow_index -= 1
-	else:
-		action_arrow_index = action_arrows.size() -1
-	action_arrows[action_arrow_index].visible = true
-
-func find_action_arrows():
-	for i in range(5):
-		if has_node("a" + String(i)):
-			action_arrows[i] = get_node("a" + String(i))
-			action_arrows[i].visible = false
-		else:
-			break
-	
-
 ################ input shit ##############
 func _input(event):
-	if !active || action_arrows.size() == 0:
+	if not active || action_arrow == null || minigame.visible:
 		return
-	if minigame.visible:
-		return ### deactivate controls if minigame is active
 	if event.is_action_pressed("ui_space"):
 		if is_pet_on_screen():
 			minigame.activate()
-		return
-	if event.is_action_pressed("ui_up"):
-		change_arrow_p()
-		return
-	if event.is_action_pressed("ui_down"):
-		change_arrow_m()
 		return
 
 ############### minigame shit ##############
@@ -95,3 +53,17 @@ func minigame_finshed(state):
 ############### helper shit ###############
 func is_pet_on_screen():
 	return floor(main.pet.position.x/51) == floor(position.x/51)
+	
+func sw_action_button_visibility_init(pet):
+	pet.connect("age_changed", self, "sw_action_button_visibility")
+	sw_action_button_visibility(pet.age)
+	
+func sw_action_button_visibility(age):
+	var AGE = main.getPet().AGE
+	match age:
+		AGE.EGG:
+			action_arrow.visible = false
+		AGE.CHILD:
+			continue
+		AGE.ADULT:
+			action_arrow.visible = true
