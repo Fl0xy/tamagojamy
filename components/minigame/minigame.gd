@@ -37,11 +37,12 @@ func _process(delta):
 		if arrow.position.x >= target.position.x && arrow.position.x < (target.position.x + 7):
 			if (playWin):
 				$win.play()
-			main.getPet.up_needs(key)
+			main.getPet().action(key, true)
 			emit_signal("game_finished", true)
 		else:
 			if (playLose):
 				$lose.play()
+			main.getPet().action(key, false)
 			emit_signal("game_finished", false)
 		
 	
@@ -76,12 +77,12 @@ func deactivate():
 	
 
 func activate():
-	# main.getPet.can_do(key):
-	timer = start_timer
-	curPos = arrow.position.x
-	visible = true
-	speed = randf()
-	state = STATES.START
-	emit_signal("game_show")
-	#else:
-	#	$lose.play()
+	if main.getPet().can_do(key):
+		timer = start_timer
+		curPos = arrow.position.x
+		visible = true
+		speed = randf()
+		state = STATES.START
+		emit_signal("game_show")
+	else:
+		$lose.play()

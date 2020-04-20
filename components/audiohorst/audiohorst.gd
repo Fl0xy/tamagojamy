@@ -33,6 +33,10 @@ func playsound_noise_start():
 	
 func playsound_noise_stop():
 	if sounds_noise.size() > 0 && audio_index >= 0:
+		if sounds_start[audio_index].playing():
+			# start sound is still playing -> deactive noise
+			sounds_start[audio_index].disconnect("finished", self, "playsound_noise_start")
+			# stop noise anyway because threads
 		sounds_noise[audio_index].stop()
 
 func playsound_end(yes):
@@ -48,7 +52,6 @@ func playsound_end(yes):
 		########### lost ###########
 		playsound_noise_stop()
 		audio_index -1
-
 
 ############### finder shit ###############
 func find_sounds_start():
