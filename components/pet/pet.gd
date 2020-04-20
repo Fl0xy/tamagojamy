@@ -1,12 +1,15 @@
 extends Node2D
 
 enum AGE {EGG, CHILD, ADULT}
+signal age_changed(age)
+
+
 export var EGG_DURATION = 30
 export var CHILD_DURATION = 180
 export var ADULT_DURATION = -INF
 
 var age = AGE.EGG setget set_age
-var time_until_aging = EGG_DURATION
+onready var time_until_aging = EGG_DURATION
 
 func set_age(v):
 	if not AGE.has(v):
@@ -20,6 +23,11 @@ func set_age(v):
 			time_until_aging = CHILD_DURATION
 			show_child_graphics()
 		AGE.ADULT:
+			self.hunger_rate = 1
+			self.energy_burn_rate = 1
+			self.dirty_rate = 1
+			self.food_conversion_rate = 1
+			self.fun_rate = 1
 			time_until_aging = ADULT_DURATION
 			show_adult_graphics()
 
@@ -35,6 +43,7 @@ func age(delta):
 				self.age = AGE.ADULT
 			AGE.EGG:
 				self.age = AGE.CHILD
+		emit_signal("age_changed", self.age)
 		$Audio/Age.play()
 
 var alive = true
