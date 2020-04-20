@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/dusche_noise.wav-b7b072ed9ed2f810dec6bcb2c4f97b42.sample"
+
+[deps]
+
+source_file="res://sound/dusche_noise.wav"
+dest_files=[ "res://.import/dusche_noise.wav-b7b072ed9ed2f810dec6bcb2c4f97b42.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=true
+compress/mode=0

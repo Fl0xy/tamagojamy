@@ -86,5 +86,6 @@ func init_minigame():
 func minigame_finshed(state):
 	if state:
 		print("minigame gewonnen: ", action_arrows[action_arrow_index].key)
+		main.getPet().up_needs(action_arrows[action_arrow_index].key)
 	else:
 		print("minigame verloren")

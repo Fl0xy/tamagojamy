@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://assets/places/toilet_room/toilet.png" type="Texture" id=1]
 [ext_resource path="res://assets/places/toilet_room/toilet_paper.png" type="Texture" id=2]
@@ -7,6 +7,9 @@
 [ext_resource path="res://components/room.gd" type="Script" id=5]
 [ext_resource path="res://components/minigame/minigame.tscn" type="PackedScene" id=6]
 [ext_resource path="res://components/arrow_down/arrow_down.tscn" type="PackedScene" id=7]
+[ext_resource path="res://components/audiohorst/audiohorst.tscn" type="PackedScene" id=8]
+[ext_resource path="res://sound/toilet1.wav" type="AudioStream" id=9]
+[ext_resource path="res://sound/toilet0.wav" type="AudioStream" id=10]
 
 [node name="toilet" type="Node2D"]
 script = ExtResource( 5 )
@@ -42,7 +45,17 @@ __meta__ = {
 }
 
 [node name="a0" parent="." instance=ExtResource( 7 )]
-position = Vector2( 24, 16 )
+position = Vector2( 25, 16 )
+key = "shit"
 
 [node name="minigame" parent="." instance=ExtResource( 6 )]
 visible = false
+playWin = false
+
+[node name="audiohorst" parent="." instance=ExtResource( 8 )]
+
+[node name="sound0e" type="AudioStreamPlayer" parent="audiohorst"]
+stream = ExtResource( 10 )
+
+[node name="sound1e" type="AudioStreamPlayer" parent="audiohorst"]
+stream = ExtResource( 9 )

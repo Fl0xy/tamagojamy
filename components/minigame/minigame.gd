@@ -2,8 +2,8 @@ extends Node2D
 
 enum STATES {NONE, START, RUNNIG_RIGHT, RUNNIG_LEFT, FINISHED} 
 
-const minPos = 8
-const maxPos = 36
+const minPos = 10
+const maxPos = 38
 const finished_timer = 2
 const start_timer = 1
 
@@ -16,7 +16,10 @@ onready var arrow = $arrow
 onready var target = $target
 
 signal game_finished(state)
-signal game_visibilty_changed(state)
+signal game_show()
+
+export(bool) var playWin = true
+export(bool) var playLose = true
 
 func _ready():
 	visible = false
@@ -30,8 +33,12 @@ func _process(delta):
 		state = STATES.FINISHED
 		timer = finished_timer
 		if arrow.position.x >= target.position.x && arrow.position.x < (target.position.x + 7):
+			if (playWin):
+				$win.play()
 			emit_signal("game_finished", true)
 		else:
+			if (playLose):
+				$lose.play()
 			emit_signal("game_finished", false)
 		
 	
@@ -62,7 +69,6 @@ func _process(delta):
 func deactivate():
 	state = STATES.NONE
 	visible = false
-	emit_signal("game_visibilty_changed", false)
 	arrow.position.x = minPos
 	
 
@@ -71,5 +77,5 @@ func activate():
 	curPos = arrow.position.x
 	visible = true
 	speed = randf()
-	emit_signal("game_visibilty_changed", true)
 	state = STATES.START
+	emit_signal("game_show")
