@@ -149,8 +149,25 @@ func move_to_pos(pos):
 	print("Pet moving to ", target_x)
 	moving = true
 
+### communcation with level #####
+func can_do(key):
+	match key:
+		"shit":
+			return is_toiletty()
+		"eat":
+			return is_hungry() and not is_toiletty()
+		"sleep":
+			return is_sleepy() and not is_hungry() and not is_toiletty()
+		"train":
+			return is_bored() and not is_sleepy() and not is_hungry() and not is_toiletty()
+		"clean":
+			return is_dirty() and not is_bored() and not is_sleepy() and not is_hungry() and not is_toiletty()
+
 func up_needs(key):
 	pass
+#################################
+
+
 
 func _physics_process(delta):
 	if not alive: return

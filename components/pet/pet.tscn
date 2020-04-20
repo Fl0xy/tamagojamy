@@ -130,7 +130,6 @@ script = ExtResource( 3 )
 
 [node name="Egg" type="AnimatedSprite" parent="Graphics"]
 frames = SubResource( 1 )
-frame = 2
 playing = true
 centered = false
 offset = Vector2( -5, -6 )
