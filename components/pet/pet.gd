@@ -13,6 +13,9 @@ func move_to_pos(pos):
 	target_x = pos.x
 	print("Pet moving to ", target_x)
 	moving = true
+
+func up_needs(key):
+	pass
 	
 func _physics_process(delta):
 	if moving:
