@@ -28,7 +28,7 @@
 [ext_resource path="res://assets/pet/pet_emotions/sport_frame_1.png" type="Texture" id=26]
 [ext_resource path="res://assets/pet/pet_emotions/sleepy_frame_1.png" type="Texture" id=27]
 
-[sub_resource type="SpriteFrames" id=1]
+[sub_resource type="SpriteFrames" id=12]
 animations = [ {
 "frames": [ ExtResource( 6 ), ExtResource( 8 ), ExtResource( 7 ), ExtResource( 8 ) ],
 "loop": true,
@@ -36,7 +36,7 @@ animations = [ {
 "speed": 3.0
 } ]
 
-[sub_resource type="SpriteFrames" id=2]
+[sub_resource type="SpriteFrames" id=13]
 animations = [ {
 "frames": [ ExtResource( 1 ), ExtResource( 2 ) ],
 "loop": true,
@@ -75,7 +75,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.3, 0.6 )
 }
 
-[sub_resource type="SpriteFrames" id=6]
+[sub_resource type="SpriteFrames" id=14]
 animations = [ {
 "frames": [ ExtResource( 20 ), ExtResource( 15 ) ],
 "loop": true,
@@ -91,7 +91,7 @@ animations = [ {
 "speed": 0.5
 } ]
 
-[sub_resource type="SpriteFrames" id=8]
+[sub_resource type="SpriteFrames" id=15]
 animations = [ {
 "frames": [ ExtResource( 22 ), ExtResource( 27 ) ],
 "loop": true,
@@ -129,7 +129,7 @@ script = ExtResource( 3 )
 [node name="Graphics" type="Node2D" parent="."]
 
 [node name="Egg" type="AnimatedSprite" parent="Graphics"]
-frames = SubResource( 1 )
+frames = SubResource( 12 )
 frame = 2
 playing = true
 centered = false
@@ -137,7 +137,7 @@ offset = Vector2( -5, -6 )
 
 [node name="Child" type="AnimatedSprite" parent="Graphics"]
 visible = false
-frames = SubResource( 2 )
+frames = SubResource( 13 )
 playing = true
 centered = false
 
@@ -173,7 +173,7 @@ position = Vector2( 4, -14 )
 
 [node name="Dirty" type="AnimatedSprite" parent="Emotions"]
 visible = false
-frames = SubResource( 6 )
+frames = SubResource( 14 )
 playing = true
 
 [node name="BoredSporty" type="AnimatedSprite" parent="Emotions"]
@@ -183,7 +183,7 @@ playing = true
 
 [node name="Sleepy" type="AnimatedSprite" parent="Emotions"]
 visible = false
-frames = SubResource( 8 )
+frames = SubResource( 15 )
 playing = true
 
 [node name="Hunger" type="AnimatedSprite" parent="Emotions"]
@@ -207,5 +207,5 @@ texture = ExtResource( 23 )
 [node name="Anger" type="AnimatedSprite" parent="Emotions"]
 visible = false
 frames = SubResource( 11 )
-frame = 1
+frame = 2
 playing = true

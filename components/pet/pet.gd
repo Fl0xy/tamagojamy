@@ -165,6 +165,7 @@ func can_do(key):
 			return is_dirty() and not is_bored() and not is_sleepy() and not is_hungry() and not is_toiletty()
 
 func action(key, state):
+	if not state: return
 	match key:
 		"shit":
 			self.guts = 0

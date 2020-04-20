@@ -31,9 +31,6 @@ position = Vector2( 204, 0 )
 [node name="toilet" parent="." instance=ExtResource( 8 )]
 position = Vector2( 255, 0 )
 
-[node name="pet" parent="." instance=ExtResource( 3 )]
-position = Vector2( 22, 40 )
-
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0
 current = true
@@ -47,3 +44,6 @@ position = Vector2( 51, 51 )
 
 [node name="workplace" parent="." instance=ExtResource( 11 )]
 position = Vector2( 0, -51 )
+
+[node name="pet" parent="." instance=ExtResource( 3 )]
+position = Vector2( 22, 40 )
