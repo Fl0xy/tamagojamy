@@ -98,16 +98,17 @@ func hide_all_emotions():
 
 func show_emotions():
 	hide_all_emotions()
-	if is_hungry():
-		$Emotions/Hunger.show()
-	if is_sleepy():
-		$Emotions/Sleepy.show()
 	if is_dirty():
 		$Emotions/Dirty.show()
-	if is_toiletty():
-		$Emotions/Toilett.show()
 	if is_bored():
 		$Emotions/BoredSporty.show()
+	if is_sleepy():
+		$Emotions/Sleepy.show()
+	if is_hungry():
+		$Emotions/Hunger.show()
+		
+	if is_toiletty():
+		$Emotions/Toilett.show()
 
 
 func hide_all_graphics():
@@ -163,8 +164,19 @@ func can_do(key):
 		"clean":
 			return is_dirty() and not is_bored() and not is_sleepy() and not is_hungry() and not is_toiletty()
 
-func up_needs(key):
-	pass
+func action(key, state):
+	match key:
+		"shit":
+			self.guts = 0
+		"eat":
+			self.fullness = 100
+		"sleep":
+			self.energy = 100
+		"train":
+			self.fun = 100
+		"clean":
+			self.cleanliness = 100
+	
 #################################
 
 
