@@ -66,7 +66,8 @@ func _input(event):
 	if minigame.visible:
 		return ### deactivate controls if minigame is active
 	if event.is_action_pressed("ui_space"):
-		minigame.activate()
+		if is_pet_on_screen():
+			minigame.activate()
 		return
 	if event.is_action_pressed("ui_up"):
 		change_arrow_p()
@@ -92,3 +93,5 @@ func minigame_finshed(state):
 
 
 ############### helper shit ###############
+func is_pet_on_screen():
+	return floor(main.pet.position.x/51) == floor(position.x/51)
