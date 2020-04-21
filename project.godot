@@ -31,6 +31,8 @@ window/size/borderless=true
 window/per_pixel_transparency/allowed=true
 window/per_pixel_transparency/enabled=true
 window/handheld/orientation="portrait"
+window/stretch/mode="viewport"
+window/stretch/aspect="keep"
 
 [importer_defaults]
 

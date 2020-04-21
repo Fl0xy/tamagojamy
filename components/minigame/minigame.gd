@@ -27,7 +27,7 @@ func _ready():
 	visible = false
 	state = STATES.NONE
 	
-func _process(delta):
+func _physics_process(delta):
 	if state == STATES.NONE:
 		return
 	

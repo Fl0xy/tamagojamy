@@ -5,7 +5,7 @@ var following
 var dragging_start_position
 
 func _ready():
-	if OS.get_name() == "HTML5":
+	if OS.get_name() == "HTML5" || OS.get_name() == "Android":
 		return
 	$rightEar.connect("mouse_entered", self, "mouse_entered")
 	$rightEar.connect("mouse_exited", self, "mouse_exited")

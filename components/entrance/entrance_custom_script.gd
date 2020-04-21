@@ -7,11 +7,15 @@ var active = false
 
 func _ready():
 	main.connect("change_Room", self, "change_Room")
-	$goto_work.connect("finished", self, "enter_web")
 	main.connect("pet_added", self, "sw_action_button_visibility_init")
 
 func change_Room(room):
-	active = e == room
+	if e == room:
+		active = true
+	else:
+		active = false
+		$goto_work.disconnect("finished", self, "enter_web")
+		$goto_work.stop()
 
 func _input(event):
 	if (active
@@ -22,6 +26,7 @@ func _input(event):
 		play_sound()
 	
 func play_sound():
+	$goto_work.connect("finished", self, "enter_web")
 	$goto_work.play()
 
 func enter_web():
