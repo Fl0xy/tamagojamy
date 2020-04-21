@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=2]
+[gd_scene load_steps=43 format=2]
 
 [ext_resource path="res://assets/pet/pet1.png" type="Texture" id=1]
 [ext_resource path="res://assets/pet/pet2.png" type="Texture" id=2]
@@ -29,6 +29,8 @@
 [ext_resource path="res://assets/pet/pet_emotions/sleepy_frame_1.png" type="Texture" id=27]
 [ext_resource path="res://sound/win.wav" type="AudioStream" id=28]
 [ext_resource path="res://sound/lose.wav" type="AudioStream" id=29]
+[ext_resource path="res://components/pet/egg_sound.gd" type="Script" id=30]
+[ext_resource path="res://sound/egg_sounds.wav" type="AudioStream" id=31]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -132,20 +134,27 @@ script = ExtResource( 3 )
 
 [node name="Egg" type="AnimatedSprite" parent="Graphics"]
 frames = SubResource( 1 )
+frame = 3
 playing = true
 centered = false
 offset = Vector2( -5, -6 )
 
+[node name="egg_sound" type="Node" parent="Graphics/Egg"]
+script = ExtResource( 30 )
+
+[node name="player" type="AudioStreamPlayer" parent="Graphics/Egg/egg_sound"]
+stream = ExtResource( 31 )
+
 [node name="Child" type="AnimatedSprite" parent="Graphics"]
 visible = false
 frames = SubResource( 2 )
+frame = 1
 playing = true
 centered = false
 
 [node name="Adult" type="AnimatedSprite" parent="Graphics"]
 visible = false
 frames = SubResource( 3 )
-frame = 1
 playing = true
 centered = false
 offset = Vector2( -5, -5 )
@@ -156,6 +165,7 @@ visible = false
 [node name="Ghost" type="AnimatedSprite" parent="Graphics/Dead"]
 position = Vector2( -3, -24 )
 frames = SubResource( 4 )
+frame = 5
 playing = true
 centered = false
 
@@ -173,6 +183,7 @@ position = Vector2( 4, -14 )
 [node name="Dirty" type="AnimatedSprite" parent="Emotions"]
 visible = false
 frames = SubResource( 6 )
+frame = 1
 playing = true
 
 [node name="BoredSporty" type="AnimatedSprite" parent="Emotions"]
@@ -184,6 +195,7 @@ playing = true
 [node name="Sleepy" type="AnimatedSprite" parent="Emotions"]
 visible = false
 frames = SubResource( 8 )
+frame = 1
 playing = true
 
 [node name="Hunger" type="AnimatedSprite" parent="Emotions"]
@@ -195,6 +207,7 @@ playing = true
 [node name="Toilett" type="AnimatedSprite" parent="Emotions"]
 visible = false
 frames = SubResource( 10 )
+frame = 1
 playing = true
 
 [node name="Confusion" type="Sprite" parent="Emotions"]
@@ -208,7 +221,7 @@ texture = ExtResource( 23 )
 [node name="Anger" type="AnimatedSprite" parent="Emotions"]
 visible = false
 frames = SubResource( 11 )
-frame = 2
+frame = 1
 playing = true
 
 [node name="Audio" type="Node" parent="."]

@@ -9,9 +9,11 @@ func _ready():
 	
 func change_Room(room):
 	if self == room:
+		$sound.play()
 		active = true
 	else:
 		active = false
+		$sound.stop()
 		
 func _input(event):
 	if active:
