@@ -1,6 +1,6 @@
 # Tamagojamy
 
-A fast paced action tamagotchi done in 3 days for the 46th Ludum Dare in colaboration with [Akronsus](https://github.com/Akronsus)  
+A fast paced action tamagotchi done in 3 days for the 46th Ludum Dare in collaboration with [Akronsus](https://github.com/Akronsus)  
 
 ![screenshot of the game Tamagojamy](assets/screenshot.png)
 
